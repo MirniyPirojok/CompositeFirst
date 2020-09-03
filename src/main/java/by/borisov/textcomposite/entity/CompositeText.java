@@ -29,4 +29,9 @@ public class CompositeText implements TextComponent {
     public ComponentType getComponentType() {
         return componentType;
     }
+
+    @Override
+    public void getChild(TextComponent textComponent) {
+
+    }
 }

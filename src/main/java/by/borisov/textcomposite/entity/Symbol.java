@@ -18,4 +18,8 @@ public class Symbol implements TextComponent {
         return componentType;
     }
 
+    @Override
+    public void getChild(TextComponent textComponent) {
+    }
+
 }
