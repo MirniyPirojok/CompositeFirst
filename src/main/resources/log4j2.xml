@@ -8,7 +8,7 @@
     </Properties>
 
     <Appenders>
-        <RollingFile name="RollingFile" fileName="${LOG_DIR}/cube.log"
+        <RollingFile name="RollingFile" fileName="${LOG_DIR}/textcomposite.log"
                      filePattern="${LOG_DIR}/${ARCHIVE_LOG_DIR}/%d{yyyy-MM-dd_HH-mm}_%i.log.zip">
             <PatternLayout pattern="${pattern_file}"/>
 
