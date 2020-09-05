@@ -5,11 +5,11 @@ import by.borisov.textcomposite.entity.TextComponent;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-public class Symbol implements TextComponent {
-    private final String symbol;    //TODO change symbol to char
-    private ComponentType componentType;
+public class SymbolComponent implements TextComponent {
+    private final char symbol;
+    private final ComponentType componentType;
 
-    public Symbol(String symbol) {
+    public SymbolComponent(char symbol) {
         this.symbol = symbol;
         this.componentType = ComponentType.SYMBOL;
     }
@@ -24,16 +24,12 @@ public class Symbol implements TextComponent {
     }
 
     @Override
-    public void getChild(TextComponent textComponent) {
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        Symbol symbol1 = (Symbol) o;
+        SymbolComponent symbol1 = (SymbolComponent) o;
 
         return new EqualsBuilder()
                 .append(symbol, symbol1.symbol)
@@ -51,6 +47,6 @@ public class Symbol implements TextComponent {
 
     @Override
     public String toString() {
-        return "" + symbol;
+        return Character.toString(symbol);
     }
 }

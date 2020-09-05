@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 public class ParagraphParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
     private static final String SENTENCE_DELIMITER = "[.?!]\\s?]";
-    private final BaseParser lexemeParser = new SentenceParser();
+    private final BaseParser sentenceParser = new SentenceParser();
 
     public ParagraphParser() {
     }
@@ -20,9 +20,11 @@ public class ParagraphParser implements BaseParser {
         TextComponent componentParagraph = new CompositeText(ComponentType.PARAGRAPH);
         String[] sentences = paragraph.split(SENTENCE_DELIMITER);
         for (String sentence : sentences) {
-            TextComponent componentSentence = lexemeParser.parse(sentence);
+            TextComponent componentSentence = sentenceParser.parse(sentence);
             componentParagraph.add(componentSentence);
         }
+        logger.info("Paragraph parsed to sentences.");
+
         return componentParagraph;
     }
 }

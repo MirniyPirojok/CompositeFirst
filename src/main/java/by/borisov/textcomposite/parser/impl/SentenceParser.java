@@ -9,8 +9,8 @@ import org.apache.logging.log4j.Logger;
 
 public class SentenceParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    private static final String LEXEME_DELIMITER = " ";
-    private BaseParser symbolParser = new LexemeParser();
+    private static final String LEXEME_DELIMITER = "\b";
+    private final BaseParser lexemeParser = new LexemeParser();
 
     public SentenceParser() {
     }
@@ -20,9 +20,11 @@ public class SentenceParser implements BaseParser {
         TextComponent componentSentence = new CompositeText(ComponentType.SENTENCE);
         String[] lexemes = sentence.split(LEXEME_DELIMITER);
         for (String lexeme : lexemes) {
-            TextComponent componentLexeme = symbolParser.parse(lexeme);
+            TextComponent componentLexeme = lexemeParser.parse(lexeme);
             componentSentence.add(componentLexeme);
         }
+        logger.info("Sentence parsed to lexemes.");
+
         return componentSentence;
     }
 }

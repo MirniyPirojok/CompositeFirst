@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 public class TextParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
     private static final String PARAGRAPH_DELIMITER = "\\n";
-    private final BaseParser sentenceParser = new ParagraphParser();
+    private final BaseParser paragraphParser = new ParagraphParser();
 
     public TextParser() {
     }
@@ -18,12 +18,14 @@ public class TextParser implements BaseParser {
     @Override
     public TextComponent parse(String text) {
         TextComponent componentText = new CompositeText(ComponentType.TEXT);
+
         String[] paragraphs = text.split(PARAGRAPH_DELIMITER);
         for (String paragraph : paragraphs) {
-            TextComponent componentParagraph = sentenceParser.parse(paragraph);
+            TextComponent componentParagraph = paragraphParser.parse(paragraph);
             componentText.add(componentParagraph);
         }
 
+        logger.info("Text parsed to paragraphs.");
         return componentText;
     }
 }

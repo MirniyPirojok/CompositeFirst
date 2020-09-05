@@ -36,10 +36,6 @@ public class CompositeText implements TextComponent {
     }
 
     @Override
-    public void getChild(TextComponent textComponent) {
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 
@@ -68,26 +64,15 @@ public class CompositeText implements TextComponent {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (TextComponent component : components) {
-            switch (component.getComponentType()) {
-                case TEXT:
-                case WORD:
-                case EXPRESSION:
-                case LEXEME:
-                    stringBuilder.append(component.toString()).append(" ");
-                    break;
-                case SENTENCE:
-                    stringBuilder.append(component.toString());
-                    break;
-                case SYMBOL:
-                    stringBuilder.append(component.toString());
-                    break;
-                case PARAGRAPH:
-                    stringBuilder.append(component.toString()).append("\n");
-                    break;
-                default:
-                    logger.error("Can't output this component");
+            ComponentType type = component.getComponentType();
+            if (type == ComponentType.LEXEME) {
+                stringBuilder.append(" ");
+            } else if (type == ComponentType.PARAGRAPH) {
+                stringBuilder.append("\n");
             }
+            stringBuilder.append(component);
         }
+        logger.info("Text collected back.");
         return stringBuilder.toString();
     }
 }
