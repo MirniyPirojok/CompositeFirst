@@ -5,6 +5,9 @@ import by.borisov.textcomposite.entity.TextComponent;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SymbolComponent implements TextComponent {
     private final char symbol;
     private final ComponentType componentType;
@@ -21,6 +24,11 @@ public class SymbolComponent implements TextComponent {
     @Override
     public ComponentType getComponentType() {
         return componentType;
+    }
+
+    @Override
+    public List<TextComponent> getComponents() {
+        return new ArrayList<>();
     }
 
     @Override

@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class TextParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    private static final String PARAGRAPH_DELIMITER = "\\n";
+    private static final String PARAGRAPH_DELIMITER = "\\n{2}";
     private final BaseParser paragraphParser = new ParagraphParser();
 
     public TextParser() {
