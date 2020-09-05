@@ -5,3 +5,5 @@
 /*.iml
 /logs/logs/archive/
 /temp/
+/src/main/java/by/borisov/textcomposite/parser/ParserDemo.java
+/src/main/java/by/borisov/textcomposite/entity/CompositeDemo.java
