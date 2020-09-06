@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class SentenceParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    private static final String LEXEME_DELIMITER = "\b";
+    private static final String LEXEME_DELIMITER = "\\s+";
     private final BaseParser lexemeParser = new LexemeParser();
 
     public SentenceParser() {

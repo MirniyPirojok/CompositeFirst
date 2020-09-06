@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class ParagraphParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    private static final String SENTENCE_DELIMITER = "[.?!]+\\s+";
+    private static final String SENTENCE_DELIMITER = "[.?!]\\s+";
     private final BaseParser sentenceParser = new SentenceParser();
 
     public ParagraphParser() {
