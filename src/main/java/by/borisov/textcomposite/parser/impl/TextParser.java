@@ -3,6 +3,7 @@ package by.borisov.textcomposite.parser.impl;
 import by.borisov.textcomposite.entity.ComponentType;
 import by.borisov.textcomposite.entity.TextComponent;
 import by.borisov.textcomposite.entity.impl.CompositeText;
+import by.borisov.textcomposite.exception.CustomException;
 import by.borisov.textcomposite.parser.BaseParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,7 +17,7 @@ public class TextParser implements BaseParser {
     }
 
     @Override
-    public TextComponent parse(String text) {
+    public TextComponent parse(String text) throws CustomException {
         TextComponent componentText = new CompositeText(ComponentType.TEXT);
 
         String[] paragraphs = text.split(PARAGRAPH_DELIMITER);

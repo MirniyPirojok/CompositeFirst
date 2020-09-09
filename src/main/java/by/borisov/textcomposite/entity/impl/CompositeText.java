@@ -59,8 +59,6 @@ public class CompositeText implements TextComponent {
 
     @Override
     public String toString() {
-        //toString() должен в цикле вызывать toString() следующего композита.
-        // И только последний toString() возвращает сам символ, то есть toString() leaf-a.
         StringBuilder stringBuilder = new StringBuilder();
 
         for (TextComponent component : components) {
@@ -71,12 +69,11 @@ public class CompositeText implements TextComponent {
             stringBuilder.append(component);
             if (type == ComponentType.SENTENCE) {
                 stringBuilder.append(".");
-            }
-            else if (type == ComponentType.PARAGRAPH) {
+            } else if (type == ComponentType.PARAGRAPH) {
                 stringBuilder.append("\n");
             }
         }
-//        logger.info("Text collected back.");
+        logger.info("Text collected back.");
         return stringBuilder.toString();
     }
 }

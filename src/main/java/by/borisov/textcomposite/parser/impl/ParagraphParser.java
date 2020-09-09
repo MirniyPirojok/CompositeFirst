@@ -3,23 +3,29 @@ package by.borisov.textcomposite.parser.impl;
 import by.borisov.textcomposite.entity.ComponentType;
 import by.borisov.textcomposite.entity.TextComponent;
 import by.borisov.textcomposite.entity.impl.CompositeText;
+import by.borisov.textcomposite.exception.CustomException;
 import by.borisov.textcomposite.parser.BaseParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ParagraphParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    private static final String SENTENCE_DELIMITER = "[.?!]\\s+";
+    public static final String REGEX_SENTENCE = "[^.!?]+";
     private final BaseParser sentenceParser = new SentenceParser();
 
     public ParagraphParser() {
     }
 
     @Override
-    public TextComponent parse(String paragraph) {
+    public TextComponent parse(String paragraph) throws CustomException {
         TextComponent componentParagraph = new CompositeText(ComponentType.PARAGRAPH);
-        String[] sentences = paragraph.split(SENTENCE_DELIMITER);
-        for (String sentence : sentences) {
+
+        Matcher matcher = Pattern.compile(REGEX_SENTENCE).matcher(paragraph);
+        while (matcher.find()) {
+            String sentence = matcher.group();
             TextComponent componentSentence = sentenceParser.parse(sentence);
             componentParagraph.add(componentSentence);
         }
