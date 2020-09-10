@@ -13,7 +13,8 @@ import java.util.regex.Pattern;
 
 public class ParagraphParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    public static final String REGEX_SENTENCE = "([^.!?\\n]+[.!?\\n])";
+//    public static final String REGEX_SENTENCE = "([^.!?\\n]+[.!?\\n])";
+    public static final String REGEX_SENTENCE = "([^.!?\\n]+)";
     private final BaseParser sentenceParser = new SentenceParser();
 
     public ParagraphParser() {

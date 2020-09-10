@@ -69,8 +69,9 @@ public class CompositeText implements TextComponent {
             }
 
             stringBuilder.append(component);
-
-            if (type == ComponentType.PARAGRAPH) {
+            if (type == ComponentType.SENTENCE) {
+                stringBuilder.append(".");
+            } else if (type == ComponentType.PARAGRAPH) {
                 stringBuilder.append("\n");
             }
         }

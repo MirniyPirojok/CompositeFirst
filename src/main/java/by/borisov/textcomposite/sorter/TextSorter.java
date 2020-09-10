@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 public class TextSorter {
     static Logger logger = LogManager.getLogger();
-//    private static int count;
 
     public void sortParagraphsBySentenceCount(TextComponent text) {
         text.getComponents().sort(
@@ -46,7 +45,7 @@ public class TextSorter {
         }
 
         lexemes.sort(new ComparatorBySymbolOccurrence(givenSymbol));
-        logger.info("Lexemes were sorted by symbol occurrence.");
+        logger.info(String.format("Lexemes were sorted by symbol '%s' occurrence.", givenSymbol));
 
         return lexemes.toString();
     }
