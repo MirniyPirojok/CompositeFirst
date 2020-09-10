@@ -1,4 +1,4 @@
-package by.borisov.textcomposite.interpreter;
+package by.borisov.textcomposite.calculator;
 
 import by.borisov.textcomposite.exception.CustomException;
 import org.apache.logging.log4j.LogManager;
@@ -9,7 +9,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.text.NumberFormat;
 
-public class ExpressionInterpreter {
+public class ExpressionCalculator {
     static Logger logger = LogManager.getLogger();
     public static final String J = "7";
     public static final String I = "7";

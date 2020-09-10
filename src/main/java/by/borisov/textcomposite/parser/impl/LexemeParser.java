@@ -5,7 +5,7 @@ import by.borisov.textcomposite.entity.TextComponent;
 import by.borisov.textcomposite.entity.impl.CompositeText;
 import by.borisov.textcomposite.entity.impl.SymbolComponent;
 import by.borisov.textcomposite.exception.CustomException;
-import by.borisov.textcomposite.interpreter.ExpressionInterpreter;
+import by.borisov.textcomposite.calculator.ExpressionCalculator;
 import by.borisov.textcomposite.parser.BaseParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,7 +20,7 @@ public class LexemeParser implements BaseParser {
     @Override
     public TextComponent parse(String lexeme) throws CustomException {
         TextComponent componentLexeme = new CompositeText(ComponentType.LEXEME);
-        ExpressionInterpreter interpreter = new ExpressionInterpreter();
+        ExpressionCalculator interpreter = new ExpressionCalculator();
 
         if (lexeme.matches(REGEX_EXPRESSION)) {
             lexeme = lexeme.replaceAll(REGEX_EXPRESSION, interpreter.interpretExpression(lexeme));
