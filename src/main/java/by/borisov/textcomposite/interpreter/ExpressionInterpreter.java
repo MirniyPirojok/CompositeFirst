@@ -1,4 +1,4 @@
-package by.borisov.textcomposite.util;
+package by.borisov.textcomposite.interpreter;
 
 import by.borisov.textcomposite.exception.CustomException;
 import org.apache.logging.log4j.LogManager;
