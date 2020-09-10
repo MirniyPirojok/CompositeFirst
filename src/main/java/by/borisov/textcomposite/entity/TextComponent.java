@@ -9,4 +9,5 @@ public interface TextComponent {
     ComponentType getComponentType();
 
     List<TextComponent> getComponents();
+
 }

@@ -18,7 +18,7 @@ public class CompositeText implements TextComponent {
 
     public CompositeText(ComponentType componentType) {
         this.componentType = componentType;
-        components = new ArrayList<>();
+        this.components = new ArrayList<>();
     }
 
     public List<TextComponent> getComponents() {
@@ -73,7 +73,7 @@ public class CompositeText implements TextComponent {
                 stringBuilder.append("\n");
             }
         }
-        logger.info("Text collected back.");
+//        logger.info("Text collected back.");
         return stringBuilder.toString();
     }
 }
