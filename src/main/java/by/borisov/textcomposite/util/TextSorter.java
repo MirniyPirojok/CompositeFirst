@@ -1,4 +1,4 @@
-package by.borisov.textcomposite.sorter;
+package by.borisov.textcomposite.util;
 
 import by.borisov.textcomposite.comparator.ComparatorByLexemesLength;
 import by.borisov.textcomposite.comparator.ComparatorBySymbolOccurrence;

@@ -5,7 +5,7 @@ import by.borisov.textcomposite.entity.TextComponent;
 import by.borisov.textcomposite.entity.impl.CompositeText;
 import by.borisov.textcomposite.entity.impl.SymbolComponent;
 import by.borisov.textcomposite.exception.CustomException;
-import by.borisov.textcomposite.service.ExpressionInterpreter;
+import by.borisov.textcomposite.util.ExpressionInterpreter;
 import by.borisov.textcomposite.parser.BaseParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
