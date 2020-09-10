@@ -63,13 +63,14 @@ public class CompositeText implements TextComponent {
 
         for (TextComponent component : components) {
             ComponentType type = component.getComponentType();
+
             if (type == ComponentType.LEXEME) {
                 stringBuilder.append(" ");
             }
+
             stringBuilder.append(component);
-            if (type == ComponentType.SENTENCE) {
-                stringBuilder.append(".");
-            } else if (type == ComponentType.PARAGRAPH) {
+
+            if (type == ComponentType.PARAGRAPH) {
                 stringBuilder.append("\n");
             }
         }

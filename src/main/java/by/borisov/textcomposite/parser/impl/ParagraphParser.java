@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class ParagraphParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    public static final String REGEX_SENTENCE = "[^.!?]+";
+    public static final String REGEX_SENTENCE = "([^.!?\\n]+[.!?\\n])";
     private final BaseParser sentenceParser = new SentenceParser();
 
     public ParagraphParser() {
@@ -29,8 +29,8 @@ public class ParagraphParser implements BaseParser {
             TextComponent componentSentence = sentenceParser.parse(sentence);
             componentParagraph.add(componentSentence);
         }
-        logger.info("Paragraph parsed to sentences.");
 
+        logger.info("Paragraph parsed to sentences.");
         return componentParagraph;
     }
 }

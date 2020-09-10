@@ -14,7 +14,6 @@ public class LexemeParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
     public static final String REGEX_EXPRESSION = "[\\d(][\\d-+*/)ij\\s(]+";
 
-
     public LexemeParser() {
     }
 
