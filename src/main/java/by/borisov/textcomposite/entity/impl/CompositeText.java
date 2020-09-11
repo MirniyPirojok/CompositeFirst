@@ -4,8 +4,6 @@ import by.borisov.textcomposite.entity.ComponentType;
 import by.borisov.textcomposite.entity.TextComponent;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +12,6 @@ import static by.borisov.textcomposite.entity.ComponentType.LEXEME;
 import static by.borisov.textcomposite.entity.ComponentType.PARAGRAPH;
 
 public class CompositeText implements TextComponent {
-    static Logger logger = LogManager.getLogger();
 
     private final ComponentType componentType;
     private final List<TextComponent> components;
@@ -75,7 +72,6 @@ public class CompositeText implements TextComponent {
 
             stringBuilder.append(component);
         }
-        logger.info("Text collected back.");
         return stringBuilder.toString();
     }
 }
