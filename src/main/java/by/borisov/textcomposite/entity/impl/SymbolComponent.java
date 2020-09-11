@@ -19,6 +19,7 @@ public class SymbolComponent implements TextComponent {
 
     @Override
     public void add(TextComponent component) {
+        throw new UnsupportedOperationException("Method add is not supported in Class Symbol");
     }
 
     @Override

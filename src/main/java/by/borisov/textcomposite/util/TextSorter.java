@@ -31,7 +31,7 @@ public class TextSorter {
         sentences.sort(new ComparatorByLexemesLength());
         logger.info("Sentences were sorted by lexemes length.");
 
-        return sentences.stream().map(Object::toString).collect(Collectors.joining(".\n"));
+        return sentences.stream().map(Object::toString).collect(Collectors.joining("\n"));
     }
 
     public String sortLexemesBySymbolOccurrence(TextComponent text, char givenSymbol) {

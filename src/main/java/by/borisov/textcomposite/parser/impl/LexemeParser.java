@@ -4,27 +4,19 @@ import by.borisov.textcomposite.entity.ComponentType;
 import by.borisov.textcomposite.entity.TextComponent;
 import by.borisov.textcomposite.entity.impl.CompositeText;
 import by.borisov.textcomposite.entity.impl.SymbolComponent;
-import by.borisov.textcomposite.exception.CustomException;
-import by.borisov.textcomposite.calculator.ExpressionCalculator;
 import by.borisov.textcomposite.parser.BaseParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class LexemeParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    public static final String REGEX_EXPRESSION = "[\\d(][\\d-+*/)ij\\s(]+";
 
     public LexemeParser() {
     }
 
     @Override
-    public TextComponent parse(String lexeme) throws CustomException {
+    public TextComponent parse(String lexeme) {
         TextComponent componentLexeme = new CompositeText(ComponentType.LEXEME);
-        ExpressionCalculator interpreter = new ExpressionCalculator();
-
-        if (lexeme.matches(REGEX_EXPRESSION)) {
-            lexeme = lexeme.replaceAll(REGEX_EXPRESSION, interpreter.interpretExpression(lexeme));
-        }
 
         char[] symbols = lexeme.toCharArray();
         for (char symbol : symbols) {

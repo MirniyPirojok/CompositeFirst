@@ -10,6 +10,9 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
+import static by.borisov.textcomposite.entity.ComponentType.LEXEME;
+import static by.borisov.textcomposite.entity.ComponentType.PARAGRAPH;
+
 public class CompositeText implements TextComponent {
     static Logger logger = LogManager.getLogger();
 
@@ -64,18 +67,15 @@ public class CompositeText implements TextComponent {
         for (TextComponent component : components) {
             ComponentType type = component.getComponentType();
 
-            if (type == ComponentType.LEXEME) {
+            if (type == LEXEME) {
                 stringBuilder.append(" ");
+            } else if (type == PARAGRAPH) {
+                stringBuilder.append("\n");
             }
 
             stringBuilder.append(component);
-            if (type == ComponentType.SENTENCE) {
-                stringBuilder.append(".");
-            } else if (type == ComponentType.PARAGRAPH) {
-                stringBuilder.append("\n");
-            }
         }
-//        logger.info("Text collected back.");
+        logger.info("Text collected back.");
         return stringBuilder.toString();
     }
 }
