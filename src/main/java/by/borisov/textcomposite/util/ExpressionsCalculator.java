@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -23,6 +22,7 @@ public class ExpressionsCalculator {
 
         for (String expression : expressionList) {
             String calculatedExpression = calculateExpression(expression, i, j);
+            calculatedExpression = calculatedExpression.replace(".0", "");
             text = text.replace(expression, calculatedExpression);
         }
         return text;
@@ -54,10 +54,6 @@ public class ExpressionsCalculator {
             throw new CustomException("JavaScript engine error.", e);
         }
         logger.info("Expression was counted.");
-
-        NumberFormat numberFormat = NumberFormat.getInstance();
-        numberFormat.setMaximumFractionDigits(0);
-        calculatedExpression = numberFormat.format(calculatedExpression);
 
         return calculatedExpression.toString();
     }
