@@ -7,12 +7,9 @@ import by.borisov.textcomposite.parser.BaseParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class TextParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    private static final String REGEX_PARAGRAPH = "([^.!?]+[^\\n]+[.!?\\n])";
+    public static final String PARAGRAPH_DELIMITER = "[\n]+";
     private final BaseParser paragraphParser = new ParagraphParser();
 
     public TextParser() {
@@ -22,9 +19,8 @@ public class TextParser implements BaseParser {
     public TextComponent parse(String text) {
         TextComponent componentText = new CompositeText(ComponentType.TEXT);
 
-        Matcher matcher = Pattern.compile(REGEX_PARAGRAPH).matcher(text);
-        while (matcher.find()) {
-            String paragraph = matcher.group();
+        String[] paragraphs = text.split(PARAGRAPH_DELIMITER);
+        for (String paragraph : paragraphs) {
             TextComponent componentParagraph = paragraphParser.parse(paragraph);
             componentText.add(componentParagraph);
         }
