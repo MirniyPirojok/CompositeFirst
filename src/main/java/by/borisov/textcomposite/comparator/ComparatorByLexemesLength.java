@@ -12,6 +12,4 @@ public class ComparatorByLexemesLength implements Comparator<TextComponent> {
         return Integer.compare(calculateLexemesLengths(sentence1),
                 calculateLexemesLengths(sentence2));
     }
-
-
 }

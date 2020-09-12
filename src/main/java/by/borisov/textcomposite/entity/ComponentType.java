@@ -1,5 +1,5 @@
 package by.borisov.textcomposite.entity;
 
 public enum ComponentType {
-    TEXT, PARAGRAPH, SENTENCE, LEXEME, WORD, EXPRESSION, SYMBOL
+    TEXT, PARAGRAPH, SENTENCE, LEXEME, LETTER, PUNCTUATION
 }

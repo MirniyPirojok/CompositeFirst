@@ -9,12 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SymbolComponent implements TextComponent {
-    private final char symbol;
-    private final ComponentType componentType;
+    private char symbol;
+    private ComponentType componentType;
+
+    public SymbolComponent() {
+    }
 
     public SymbolComponent(char symbol) {
         this.symbol = symbol;
-        this.componentType = ComponentType.SYMBOL;
+        this.componentType = ComponentType.LETTER;
+    }
+
+    public SymbolComponent(char symbol, ComponentType componentType) {
+        this.symbol = symbol;
+        this.componentType = componentType;
     }
 
     @Override

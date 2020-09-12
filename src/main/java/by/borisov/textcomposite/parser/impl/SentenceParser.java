@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 public class SentenceParser implements BaseParser {
     static Logger logger = LogManager.getLogger();
-    public static final String REGEX_LEXEME = "([\\d(][\\d-,+*/)ij(\\s]+|[\\w-,.!?')(]+)";
+    public static final String REGEX_LEXEME = "([\\d(][\\d-,+*/)ij(:\\s]+|[\\w-,.!:?')(]+)";
     private final BaseParser lexemeParser = new LexemeParser();
 
     public SentenceParser() {
