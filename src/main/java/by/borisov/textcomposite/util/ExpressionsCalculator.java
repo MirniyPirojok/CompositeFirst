@@ -28,7 +28,6 @@ public class ExpressionsCalculator {
         return text;
     }
 
-
     private List<String> findExpressions(String text) {
         List<String> expressionList = new ArrayList<>();
         Pattern pattern = Pattern.compile(REGEX_EXPRESSION);
