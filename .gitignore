@@ -5,8 +5,8 @@
 /*.iml
 /logs/logs/archive/
 /temp/
-/src/main/java/by/borisov/textcomposite/parser/ParserDemo.java
-/src/main/java/by/borisov/textcomposite/entity/CompositeDemo.java
+/src/main/java/by/borisov/compositechain/parser/ParserDemo.java
+/src/main/java/by/borisov/compositechain/entity/CompositeDemo.java
 /logs/archive/
-/src/main/java/by/borisov/textcomposite/Demo.java
+/src/main/java/by/borisov/compositechain/Demo.java
 /logs/textcomposite.log
